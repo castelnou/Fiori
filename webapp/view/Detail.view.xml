@@ -1,0 +1,14 @@
+<core:View
+	controllerName="stock.view.Detail"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" >
+	<Page
+		title="{i18n>DetailTitle}"
+		showNavButton="true"
+		navButtonPress="handleNavButtonPress" >
+			
+<Image src="https://dynamicassets.avenida.com.ar/p%2F758_21-10-2015_p-757_27-04-2015_Zapatilla-Viamo-Bluma-de-lona-estampada-rosa-1.jpg_small">
+</Image>
+		
+	</Page>
+</core:View>

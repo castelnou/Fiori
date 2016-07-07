@@ -1,0 +1,100 @@
+<core:View
+	controllerName="stock.view.Master"
+	xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" >
+
+	<Page
+		title="{i18n>MasterTitle}" >
+<!--  	  	<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField
+						search="handleSearch"
+						width="50%" >
+					</SearchField>
+				</contentLeft>
+			</Bar>
+			
+			
+		</subHeader>
+		
+		<Label/>-->
+			
+<subHeader>
+	<OverflowToolbar id="toolbar" active="false"  height="2.5rem" width="100%" design="Info" press="onToolbarPress">
+		
+       <Button  text="Material" icon="sap-icon://product" press="onMaterial">
+       </Button>
+		
+	   <Button  text="Proveedor"  icon="sap-icon://supplier" id="prueba" press="onProve">
+       </Button>
+		
+	</OverflowToolbar>
+
+</subHeader>	
+	
+			<Table 
+				id="table"
+				width="auto"
+				inset="false"
+				class="sapUiResponsiveMargin"
+				items="{
+				path: '/HeaderSet',
+				sorter : {
+				path : 'Catego',
+				descending: false,
+				group : true
+			}
+					}"
+				growing="true"
+				growingScrollToLoad="true"
+				
+				>
+
+				<headerToolbar>
+				
+					<Toolbar>
+						<Title id="tableHeader" text="Lista de Materiales"/>
+	   			<Button icon="sap-icon://refresh" press="onRefresh">
+                </Button>
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="Material" id="nameColumnTitle"/>
+					</Column>
+					<Column id="apeColumn">
+						<Text text="EAN" id="apeColumnTitle"/>
+					</Column>	
+					<Column id="depColumn">
+						<Text text="Descripción" id="depColumnTitle"/>
+					</Column>					
+					<Column id="unitNumberColumn" hAlign="End">
+						<Text text="Bloqueo" id="unitNumberColumnTitle"/>
+					</Column>
+				</columns>
+
+				<items>	
+
+					<ColumnListItem
+						type="Navigation"
+						press="handleListItemPress">
+
+						<cells>
+						
+							<ObjectIdentifier
+								title="{Matnr}" text = "Stock: {Stock}"/>
+							<Text text = "{Ean}"/>	
+							<Text text = "{Descr}"/>
+							<ObjectNumber
+								number="{Bloqueo}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>	
+	</Page>
+</core:View>
